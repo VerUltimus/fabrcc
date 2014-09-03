@@ -1,7 +1,7 @@
-var app = require("express")();
-var port = Number(process.env.PORT || 5000);
-app.listen(port);
+var express = require("express");
 
-app.get("/", function(req, res) {
-    res.send("#yoloswagrekt");
-});
+var app = express();
+
+app.use('/', express.static(__dirname+'/public'));
+
+app.listen(8080);
