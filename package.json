@@ -1,0 +1,22 @@
+{
+  "name": "fabrcc",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/VerUltimus/fabrcc.git"
+  },
+  "author": "VerUltimus",
+  "contributors": {
+
+  },
+  "bugs": {
+    "url": "https://github.com/VerUltimus/fabrcc/issues"
+  },
+  "homepage": "https://github.com/VerUltimus/fabrcc",
+  "dependencies": {
+    "socket.io": "latest",
+    "express": "latest"
+  }
+}
