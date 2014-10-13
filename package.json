@@ -17,7 +17,6 @@
   "homepage": "https://github.com/VerUltimus/fabrcc",
   "dependencies": {
     "socket.io": "latest",
-    "express": "latest",
-    "http": "latest"
+    "express": "latest"
   }
 }
