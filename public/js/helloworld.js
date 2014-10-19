@@ -1,42 +1,29 @@
-$(function() {
-    var socket = io();
-    console.log(this);
-    console.log("hi~");
+// requirejs
 
-    socket.on('connected', function(data) {
-        console.log("Connected to server.");
-    });
+// require(['bot_config'], function(bots) {
+    $(function() {
+        var socket = io();
+        console.log(this);
+        console.log("hi~");
 
-    socket.on('swole', function(data) {
-        var swoleNotif = new Notify('Swole!', {
-            body: "IT'S TIME TO GET SWOLE, GET ON THE FLOOR, GOGOGO!!!",
-            timeout: 5
+        socket.on('connected', function(data) {
+            console.log("Connected to server.");
         });
-        if (!Notify.needsPermission) {
-            swoleNotif.show();
+
+        setup(socket);
+
+        function send(message) {
+            socket.emit('message', { content: message });
         }
-        console.log("swole.");
+
+        // Notification stuffs
+        if (Notify.needsPermission) {
+            console.log("here");
+            $("body").append('<button id="permission">Get Permission</button>');
+        }
+
+        $('#permission').click(function(e) {
+            Notify.requestPermission();
+        });
     });
-
-    if (Notify.isSupported) {
-      console.log("Notifications are supported!");
-    }
-    else {
-      console.log("Notifications are not supported for this Browser/OS version yet.");
-    }
-
-    function send(message) {
-        socket.emit('message', { content: message });
-    }
-
-
-    // Notification stuffs
-    if (Notify.needsPermission) {
-        console.log("here");
-        $("body").append('<button id="permission">Get Permission</button>');
-    }
-
-    $('#permission').click(function(e) {
-        Notify.requestPermission();
-    });
-});
+// });
